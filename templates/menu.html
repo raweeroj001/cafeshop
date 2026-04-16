@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cafe Menu</title>
+</head>
+<body>
+    <style>body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f1ea;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header */
+h1 {
+    text-align: center;
+    padding: 20px;
+    background-color: #6f4e37;
+    color: white;
+    margin: 0;
+}
+
+/* Container */
+.container {
+    width: 90%;
+    margin: auto;
+}
+
+/* Card */
+.card {
+    background: white;
+    border-radius: 10px;
+    padding: 15px;
+    margin: 15px;
+    display: inline-block;
+    width: 220px;
+    vertical-align: top;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.card img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* Button */
+.btn {
+    display: inline-block;
+    padding: 6px 10px;
+    margin: 5px 2px;
+    text-decoration: none;
+    border-radius: 5px;
+    color: white;
+}
+
+.btn-add {
+    background-color: #8b5e3c;
+}
+
+.btn-edit {
+    background-color: #4CAF50;
+}
+
+.btn-delete {
+    background-color: #e74c3c;
+}
+
+/* Form */
+form {
+    width: 300px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+input, select {
+    width: 100%;
+    padding: 8px;
+    margin: 8px 0;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #6f4e37;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}</style>
+    <h1>☕ Cafe Menu</h1>
+
+    <a href="/add">➕ Add Product</a>
+
+    <hr>
+
+    {% for item in items %}
+        <div style="border:1px solid #ccc; padding:10px; margin:10px;">
+            <h3>{{ item.name }}</h3>
+            <img src="{{ item.image }}" width="150"><br>
+            Price: {{ item.price }} บาท<br>
+            Stock: {{ item.stock }}<br>
+            Category: {{ item.category_name }}<br><br>
+
+            <a href="/edit/{{ item.id }}">✏️ Edit</a>
+            <a href="/delete/{{ item.id }}">🗑️ Delete</a>
+        </div>
+    {% endfor %}
+</body>
+</html>
